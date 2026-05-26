@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "lunch-app-client-side-solution",
+    "id": "53b93cf9-1398-45c6-9158-689a4c1aa17f",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Veelead Lunch Request App"
+      },
+      "longDescription": {
+        "default": "A lunch request management application for Veelead employees"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Mail.Send"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read"
+      }
+    ],
+    "features": [
+      {
+        "title": "lunch-app Feature",
+        "description": "The feature that activates elements of the lunch-app solution.",
+        "id": "52db448d-b5dd-4d0f-a3a5-9a374e5999e6",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/lunch-app.sppkg"
+  }
+}

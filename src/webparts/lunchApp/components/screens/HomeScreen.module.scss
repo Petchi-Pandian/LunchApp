@@ -1,0 +1,545 @@
+// ── Variables ────────────────────────────────────────────────────────────────
+$primary:      #1565c0;
+$primaryLight: #1976d2;
+$primaryPale:  #e3f2fd;
+$accent:       #ff6f00;
+$success:      #2e7d32;
+$successLight: #e8f5e9;
+$error:        #c62828;
+$errorLight:   #ffebee;
+$textMain:     #1a1a2e;
+$textMuted:    #607d8b;
+$border:       #e0e7ef;
+$white:        #ffffff;
+$radius:       14px;
+$radiusSm:     8px;
+
+// ── Outer wrapper — fills the SharePoint web-part zone ───────────────────────
+.wrapper {
+  width: 100%;
+  padding: 8px 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+// ── Card container — centered, max 520px, fully fluid below that ──────────────
+.container {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  background: $white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(21, 101, 192, 0.13);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+.header {
+  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 55%, #42a5f5 100%);
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerHomeIcon {
+  font-size: 20px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  color: $white;
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+// ── Brand + Welcome ──────────────────────────────────────────────────────────
+.brandSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 18px 10px;
+  border-bottom: 1px solid $border;
+  background: #fafcff;
+}
+
+.brandLogo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.brandVee  { color: $primaryLight; }
+.brandLead { color: $accent; }
+
+.welcomeText {
+  font-size: 12.5px;
+  color: $textMuted;
+  word-break: break-word;
+  strong { color: $textMain; }
+}
+
+// ── Banner ───────────────────────────────────────────────────────────────────
+.banner {
+  background: linear-gradient(100deg, #e3f2fd 0%, #bbdefb 100%);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #bbdefb;
+}
+
+.bannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bannerTitle    { font-size: 19px; font-weight: 800; color: $primary; line-height: 1.1; }
+.bannerSubtitle { font-size: 14px; font-weight: 600; color: $primaryLight; }
+
+.bannerEmoji {
+  font-size: 38px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  line-height: 1;
+}
+
+// ── Time Notice ──────────────────────────────────────────────────────────────
+.timeNotice {
+  background: $errorLight;
+  color: $error;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 8px 18px;
+  text-align: center;
+  border-bottom: 1px solid #ffcdd2;
+  strong { font-weight: 700; }
+}
+
+// ── Date Card ────────────────────────────────────────────────────────────────
+.dateCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(90deg, #f5f7fa 0%, #eef2f8 100%);
+  border-bottom: 1px solid $border;
+}
+
+.dateDecor {
+  font-size: 26px;
+  opacity: 0.85;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.dateContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.dateDayName {
+  font-size: 17px;
+  font-weight: 800;
+  color: $primaryLight;
+  letter-spacing: 0.3px;
+}
+
+.dateDayNum {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: $textMuted;
+}
+
+// ── Submit Section ───────────────────────────────────────────────────────────
+.submitSection {
+  padding: 16px 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(135deg, $primaryLight 0%, $primary 100%);
+  color: $white;
+  border: none;
+  border-radius: $radius;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(25, 118, 210, 0.32);
+  letter-spacing: 0.3px;
+  box-sizing: border-box;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary 0%, #0d47a1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(25, 118, 210, 0.42);
+  }
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.28);
+  }
+}
+
+.submitBtnDisabled {
+  background: linear-gradient(135deg, #cfd8dc, #b0bec5) !important;
+  color: #78909c !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.btnArrow  { font-size: 20px; font-weight: 400; }
+
+.btnSpinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.submitHint {
+  font-size: 11px;
+  color: $textMuted;
+  text-align: center;
+  line-height: 1.45;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  padding: 0 4px;
+}
+
+// ── Stats Row ────────────────────────────────────────────────────────────────
+.statsRow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 10px 18px 14px;
+}
+
+.statCard {
+  flex: 1;
+  min-width: 0;           // allow shrinking
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $primaryPale;
+  border-radius: $radiusSm;
+  padding: 10px 12px;
+}
+
+.statLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: $primaryLight;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statBadge {
+  background: $primaryLight;
+  color: $white;
+  font-size: 13px;
+  font-weight: 800;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(25, 118, 210, 0.28);
+}
+
+.feedbackBtn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 14px;
+  height: auto;
+  background: linear-gradient(135deg, #0097a7, #006064);
+  color: $white;
+  border: none;
+  border-radius: $radiusSm;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 151, 167, 0.28);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #00838f, #004d40);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 151, 167, 0.38);
+  }
+}
+
+.feedbackBtnDisabled {
+  background: linear-gradient(135deg, #b0bec5, #90a4ae) !important;
+  color: rgba(255,255,255,0.8) !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+// ── Messages ─────────────────────────────────────────────────────────────────
+.successMsg,
+.errorMsg {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 18px 12px;
+  padding: 11px 14px;
+  border-radius: $radiusSm;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  animation: fadeIn 0.3s ease;
+  // Critical: break long JSON / URLs that have no whitespace
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.successMsg {
+  background: $successLight;
+  color: $success;
+  border-left: 4px solid $success;
+}
+
+.errorMsg {
+  background: $errorLight;
+  color: $error;
+  border-left: 4px solid $error;
+}
+
+.msgIcon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: none; }
+}
+
+// ── Gallery ──────────────────────────────────────────────────────────────────
+.gallerySection {
+  margin: 0 18px 22px;
+  border: 1px solid $border;
+  border-radius: $radius;
+  overflow: hidden;
+}
+
+.galleryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, $primaryPale, #ddeeff);
+  padding: 10px 14px;
+  border-bottom: 1px solid $border;
+}
+
+.galleryTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $primary;
+}
+
+.galleryBadge {
+  background: $primaryLight;
+  color: $white;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  min-width: 22px;
+  text-align: center;
+}
+
+.tableWrap { width: 100%; }
+
+// Table rows — fixed columns: request badge | date (auto) | action icon
+.tableRow {
+  display: grid;
+  grid-template-columns: 90px auto 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid $border;
+  font-size: 12.5px;
+  transition: background 0.15s;
+
+  &:last-child  { border-bottom: none; }
+  &:hover:not(.tableRowHeader) { background: #f0f7ff; }
+}
+
+.tableRowHeader {
+  background: #f4f8ff;
+  font-size: 11px;
+  font-weight: 700;
+  color: $textMuted;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reqNumBadge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(90deg, $primaryPale, #d0e8ff);
+  color: $primary;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 20px;
+  border: 1px solid #b3d1f5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.reqDate {
+  color: $textMuted;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.actionCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) { background: $errorLight; }
+  &:disabled { opacity: 0.35; cursor: not-allowed; }
+}
+
+.lockedIcon {
+  font-size: 14px;
+  opacity: 0.4;
+  cursor: default;
+}
+
+.emptyState {
+  padding: 28px 18px;
+  text-align: center;
+  color: $textMuted;
+
+  .emptyIcon { font-size: 34px; margin-bottom: 8px; }
+  p { margin: 0; font-size: 12.5px; }
+}
+
+// ── Delete Modal ─────────────────────────────────────────────────────────────
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: $white;
+  border-radius: 18px;
+  padding: 28px 24px 22px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  animation: slideUp 0.22s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.modalIcon  { font-size: 38px; margin-bottom: 10px; }
+.modalTitle { font-size: 17px; font-weight: 700; color: $textMain; margin: 0 0 8px; }
+.modalBody  { font-size: 13.5px; color: $textMuted; line-height: 1.6; margin: 0 0 22px; }
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+}
+
+.modalCancelBtn {
+  flex: 1;
+  height: 40px;
+  border: 2px solid $border;
+  background: $white;
+  color: $textMuted;
+  border-radius: $radiusSm;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover { border-color: $textMuted; color: $textMain; }
+}
+
+.modalDeleteBtn {
+  flex: 1;
+  height: 40px;
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  color: $white;
+  border: none;
+  border-radius: $radiusSm;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.28);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c62828, #7f0000);
+    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.38);
+  }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}

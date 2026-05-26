@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.20.8",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.24.0"
+    },
+    "version": "1.20.0",
+    "libraryName": "lunch-app",
+    "libraryId": "53b93cf9-1398-45c6-9158-689a4c1aa17f",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "lunch-app",
+    "solutionShortDescription": "lunch-app description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
