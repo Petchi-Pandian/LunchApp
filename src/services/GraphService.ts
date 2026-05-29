@@ -42,16 +42,14 @@ export class GraphService {
 
           <!-- Header -->
           <tr>
-            <td style="background-color:#1976d2;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 60%,#42a5f5 100%);
-                       padding:40px 30px 30px;text-align:center;">
-              <div style="font-size:34px;font-weight:900;color:#ffffff;
-                          letter-spacing:-1px;margin-bottom:6px;">
-                vee<span style="color:#ffcc00;">lead</span>
+            <td style="background:#e8f0fe;padding:36px 30px 28px;text-align:center;border-bottom:3px solid #d0e2ff;">
+              <div style="font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:8px;">
+                <span style="color:#1565c0;">vee</span><span style="color:#f57c00;">lead</span>
               </div>
-              <div style="font-size:24px;color:#ffffff;font-weight:700;margin:12px 0 4px;">
+              <div style="font-size:22px;color:#1a237e;font-weight:700;margin:10px 0 4px;">
                 &#127860; Lunch Request Confirmed!
               </div>
-              <div style="color:rgba(255,255,255,0.8);font-size:14px;">
+              <div style="color:#546e7a;font-size:14px;">
                 Your request has been successfully submitted
               </div>
             </td>
