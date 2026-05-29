@@ -117,6 +117,20 @@ export default class LunchApp extends React.Component<ILunchAppProps, ILunchAppS
     });
   }
 
+  // Returns current-month requests PLUS any upcoming (future-month) submissions
+  // so the gallery always shows a newly submitted Monday request even when
+  // it falls in the next calendar month (e.g. submitted Friday for next Monday).
+  private getGalleryRequests(): ILunchRequest[] {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    return this.state.lunchRequests.filter(req => {
+      const d = new Date(req.RequestedDate);
+      const isCurrentMonth = d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+      const isUpcoming = d >= now;
+      return isCurrentMonth || isUpcoming;
+    });
+  }
+
   // ── Action handlers ──────────────────────────────────────────────────────────
 
   private handleSubmit = async (): Promise<void> => {
@@ -289,6 +303,7 @@ export default class LunchApp extends React.Component<ILunchAppProps, ILunchAppS
         isSubmitting={isSubmitting}
         isDeleting={isDeleting}
         currentMonthRequests={this.getCurrentMonthRequests()}
+        galleryRequests={this.getGalleryRequests()}
         targetDate={this.getTargetDate()}
         errorMessage={errorMessage}
         successMessage={successMessage}

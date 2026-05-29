@@ -9,6 +9,7 @@ interface IHomeScreenProps {
   isSubmitting: boolean;
   isDeleting: boolean;
   currentMonthRequests: ILunchRequest[];
+  galleryRequests: ILunchRequest[];
   targetDate: Date;
   errorMessage: string;
   successMessage: string;
@@ -28,6 +29,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
   isSubmitting,
   isDeleting,
   currentMonthRequests,
+  galleryRequests,
   targetDate,
   errorMessage,
   successMessage,
@@ -169,11 +171,17 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
       {/* ── Gallery ─────────────────────────────────────────────────── */}
       <div className={styles.gallerySection}>
         <div className={styles.galleryHeader}>
-          <span className={styles.galleryTitle}>&#128203;&nbsp;{currentMonthLabel} Submissions</span>
-          <span className={styles.galleryBadge}>{currentMonthRequests.length}</span>
+          <span className={styles.galleryTitle}>
+            &#128203;&nbsp;{currentMonthLabel} Submissions
+            {galleryRequests.some(r => {
+              const d = new Date(r.RequestedDate);
+              return d.getMonth() !== now.getMonth() || d.getFullYear() !== now.getFullYear();
+            }) && ' & Upcoming'}
+          </span>
+          <span className={styles.galleryBadge}>{galleryRequests.length}</span>
         </div>
 
-        {currentMonthRequests.length === 0 ? (
+        {galleryRequests.length === 0 ? (
           <div className={styles.emptyState}>
             <div className={styles.emptyIcon}>&#127861;</div>
             <p>No submissions this month yet</p>
@@ -185,7 +193,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
               <span>Lunch Date</span>
               <span>Action</span>
             </div>
-            {currentMonthRequests.map(item => (
+            {galleryRequests.map(item => (
               <div key={item.ID} className={styles.tableRow}>
                 <span className={styles.reqNumBadge}>
                   {item.Title || `#${item.ID}`}
