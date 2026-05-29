@@ -42,7 +42,7 @@ export class GraphService {
 
           <!-- Header -->
           <tr>
-            <td style="background:linear-gradient(135deg,#0d47a1 0%,#1976d2 60%,#42a5f5 100%);
+            <td style="background-color:#1976d2;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 60%,#42a5f5 100%);
                        padding:40px 30px 30px;text-align:center;">
               <div style="font-size:34px;font-weight:900;color:#ffffff;
                           letter-spacing:-1px;margin-bottom:6px;">
