@@ -63,6 +63,10 @@ export default class LunchApp extends React.Component<ILunchAppProps, ILunchAppS
     if (hour >= TIME_CONFIG.SUBMIT_START_HOUR) {
       target.setDate(target.getDate() + 1);
     }
+    // Skip weekends — Saturday → Monday (+2), Sunday → Monday (+1)
+    const day = target.getDay();
+    if (day === 6) target.setDate(target.getDate() + 2);
+    else if (day === 0) target.setDate(target.getDate() + 1);
     return target;
   }
 

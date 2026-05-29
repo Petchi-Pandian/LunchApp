@@ -41,7 +41,6 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
 }) => {
   const now = new Date();
   const hour = now.getHours();
-  const isEveningWindow = hour >= 16;
 
   const dayLabel = targetDate.toLocaleDateString('en-US', { weekday: 'long' });
   const dayNum   = targetDate.getDate();
@@ -57,9 +56,13 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({
   const hourStr = (h: number): string =>
     h === 0 ? '12:00 AM' : h < 12 ? `${h}:00 AM` : h === 12 ? '12:00 PM' : `${h - 12}:00 PM`;
 
-  const windowLabel = isEveningWindow
-    ? 'Submitting for tomorrow'
-    : `Submitting for today — deadline 12:00 PM`;
+  const todayMidnight = new Date(now); todayMidnight.setHours(0, 0, 0, 0);
+  const tomorrowMidnight = new Date(todayMidnight); tomorrowMidnight.setDate(tomorrowMidnight.getDate() + 1);
+  const windowLabel = targetDate.getTime() === todayMidnight.getTime()
+    ? `Submitting for today — deadline 12:00 PM`
+    : targetDate.getTime() === tomorrowMidnight.getTime()
+      ? 'Submitting for tomorrow'
+      : `Submitting for ${dayLabel}`;
 
   return (
     <div className={styles.wrapper}>
