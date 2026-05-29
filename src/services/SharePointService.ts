@@ -143,9 +143,14 @@ export class SharePointService {
     const url =
       `${this.siteUrl}/_api/web/lists/getbytitle('${LIST_NAMES.LUNCH_REQUEST}')/items`;
 
+    // Build date as local YYYY-MM-DDT00:00:00Z so SharePoint stores the correct
+    // calendar date regardless of the browser's UTC offset.
+    const p = (n: number): string => String(n).padStart(2, '0');
+    const localDateUtc = `${requestedDate.getFullYear()}-${p(requestedDate.getMonth() + 1)}-${p(requestedDate.getDate())}T00:00:00Z`;
+
     const body: Record<string, unknown> = {
       EmployeeId: employeeSpId,
-      RequestedDate: requestedDate.toISOString(),
+      RequestedDate: localDateUtc,
       ...(hrPersonSpId ? { HRNameId: hrPersonSpId } : {}),
     };
 
